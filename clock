@@ -1,0 +1,106 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyNcGE3iGqhprn0w9/pVh/A5",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/JbSenpai19/pruebajson/blob/main/clock\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "\n",
+        "from IPython.display import display, Image, clear_output\n",
+        "from datetime import datetime\n",
+        "from pytz import timezone\n",
+        "import time  # Agrega esta línea para importar el módulo time\n",
+        "\n",
+        "def mostrar_imagen(numero):\n",
+        "    ruta_imagen = f\"{numero}.png\"  # Asumiendo que las imágenes se llaman 0.png, 1.png, ..., 9.png\n",
+        "    display(Image(filename=ruta_imagen))\n",
+        "\n",
+        "def mostrar_reloj_digital():\n",
+        "    buenos_aires = timezone('America/Argentina/Buenos_Aires')\n",
+        "\n",
+        "    while True:\n",
+        "        ahora = datetime.now(buenos_aires)\n",
+        "        hora = ahora.strftime(\"%H\")\n",
+        "        minutos = ahora.strftime(\"%M\")\n",
+        "        segundos = ahora.strftime(\"%S\")\n",
+        "\n",
+        "        clear_output(wait=True)\n",
+        "\n",
+        "        # Muestra la imagen correspondiente\n",
+        "        mostrar_imagen(hora)\n",
+        "        mostrar_imagen(minutos)\n",
+        "        mostrar_imagen(segundos)\n",
+        "\n",
+        "        # Espera 1 segundo antes de actualizar la hora\n",
+        "        time.sleep(1)\n",
+        "\n",
+        "mostrar_reloj_digital()\n"
+      ],
+      "metadata": {
+        "id": "Wb-X447qfnbE",
+        "outputId": "6e7c4f32-9d91-42ef-c60f-eaab4b1b366e",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 221
+        }
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "display_data",
+          "data": {
+            "image/png": "iVBORw0KGgoAAAANSUhEUgAAAEQAAABECAYAAAA4E5OyAAAACXBIWXMAADXTAAA10wEMIUN3AAAAG3RFWHRTb2Z0d2FyZQBDZWxzeXMgU3R1ZGlvIFRvb2zBp+F8AAAA1UlEQVR4nO3TMQoDMRAEQe3/Hy1Hxrgd6gJhqvNbRgU3e++lTwPkOyAJSAKSgCQgCUgCkoAkIAlIApKApGOQmblKdO89J98DSVf8Mm/Uk8c8cWMtIL93gOQOkNwBkjtAcgdI7gDJHSC5AyR3gOQOkNwBkjtAcgdI7vwLyGNbgGQLkGwBki1AsgVItgDJFiDZAiRbgGQLkGwBki1AsgVItgDJFiDZAiRbgGQLkGwBki1AsgVItgDJFiDZAiRbgGTLDSA3BSQBSUASkAQkAUlAEpAEJAFJLyf0s4jTOBQSAAAAAElFTkSuQmCC\n",
+            "text/plain": [
+              "<IPython.core.display.Image object>"
+            ]
+          },
+          "metadata": {}
+        },
+        {
+          "output_type": "display_data",
+          "data": {
+            "image/png": "iVBORw0KGgoAAAANSUhEUgAAAEQAAABECAYAAAA4E5OyAAAACXBIWXMAADXTAAA10wEMIUN3AAAAG3RFWHRTb2Z0d2FyZQBDZWxzeXMgU3R1ZGlvIFRvb2zBp+F8AAABCUlEQVR4nO3XSQ7DIBQE0eb+hya7xC47iQcWFr/6AKh4Egta7z3usybIeoJggmCCYIJggmCCYIJggmCCYIJggmCCYLdBWmvDRHvv7W7HnTMSQbbnjHgyS5QrQSMu8yiQZVByPmpKkOQ6yrQgyTWUqUGS8yjTgyTnUEqAJMdRyoAkx1BKgST/UcqBJL9RSoIk31HKgiT7KKVBki1KeZBk/5dcGiTZopQHeUcMusyQFkHQIghaBEGLIGgRBC2CoEUQtAiCFkHQIghaBEGLIGgRBC2CoEUQtAiCFkHQIghaBEGLIGgRBC2CoEUQtAiCFkHQ8gSQJ00QTBBMEEwQTBBMEEwQTBBMEEwQ7AU9Hu+ISNw2oQAAAABJRU5ErkJggg==\n",
+            "text/plain": [
+              "<IPython.core.display.Image object>"
+            ]
+          },
+          "metadata": {}
+        },
+        {
+          "output_type": "display_data",
+          "data": {
+            "image/png": "iVBORw0KGgoAAAANSUhEUgAAAEQAAABECAYAAAA4E5OyAAAACXBIWXMAADXTAAA10wEMIUN3AAAAG3RFWHRTb2Z0d2FyZQBDZWxzeXMgU3R1ZGlvIFRvb2zBp+F8AAABDUlEQVR4nO3Xy20DMRTFUKr/opVd4jA/j0cB7BFvAQJx8DYac07ax0YgnxeIFogWiBaIFogWiBaIFogWiBaIFogWiHYaZIwxAeac4+wbK3amAxaCnIm5FAicR1l5ZU8BchsEx6MuCQKPo1wWBB5DuTQIHEe5PAgcQ9kCBO5H2QYE7kPZCgT+RtkOBH5H2RIEfkbZFgS+R9kaBL6ibA8Ca3+4t3tZEPgflJcGeY9YdO5LWgJRSyBqCUQtgaglELUEopZA1BKIWgJRSyBqCUQtgaglELUEopZA1BKIWgJRSyBqCUQtgaglELUEopZA1BKIWgJRyzOAPNMC0QLRAtEC0QLRAtEC0QLRAtEC0d4AtzjniKmQI/8AAAAASUVORK5CYII=\n",
+            "text/plain": [
+              "<IPython.core.display.Image object>"
+            ]
+          },
+          "metadata": {}
+        }
+      ]
+    }
+  ]
+}
